@@ -1,18 +1,8 @@
 #!/bin/bash
-
-# web and bookmark searching dialog for dmenu, including different search engines
-
-# bookmarks are read from ~/.bookmarks, and must be of the format:
-# bookmark1_name bookmark1_url
-# bookmark2_name bookmark2_url
-# ...etc. Spaces/tabs can be used between names and urls
-
-search=(Bookmarks DuckDuckGo Google YouTube Wikipedia)
-urls=("" "https://duckduckgo.com/?q=" "https://www.google.com/search?q=" "https://www.youtube.com/results?search_query=" "https://en.wikipedia.org/wiki/")
-homepages=("" "https://duckduckgo.com" "https://www.google.com" "https://www.youtube.com" "https://en.wikipedia.org/wiki/Main_Page")
-
+search=(Bookmarks DuckDuckGo Google YouTube Rumble)
+urls=("" "https://duckduckgo.com/?q=" "https://www.google.com/search?q=" "https://www.youtube.com/results?search_query=" "https://rumble.com/search/video?q=")
+homepages=("" "https://duckduckgo.com" "https://www.google.com" "https://www.youtube.com" "https://rumble.com")
 menu=$(printf '%s\n' "${search[@]}" | dmenu -i )
-
 for i in "${!search[@]}"; do
   if [ ! -z "$menu" ] && [[ $menu = "Bookmarks" ]]; then
     bookmark_list=$(tr '\t\n' ' ' < $HOME/.bookmarks)

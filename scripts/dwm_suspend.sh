@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# autosuspend script
-
 while true; do
 	bat1cap=$(cat /sys/class/power_supply/BAT0/capacity)
 	bat2cap=$(cat /sys/class/power_supply/BAT1/capacity)
